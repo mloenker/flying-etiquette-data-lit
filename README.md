@@ -1,5 +1,5 @@
 # flying-etiquette-data-lit
-Original Survey: [flying-etiquette-survey](doc:https://github.com/fivethirtyeight/data/blob/master/flying-etiquette-survey/flying-etiquette.csv)\
+Original Survey: [flying-etiquette-survey](https://github.com/fivethirtyeight/data/blob/master/flying-etiquette-survey/flying-etiquette.csv)\
 This repository contains a dataset and code for the analysis of a survey on airplane etiquette. The dataset includes responses from individuals regarding their travel habits, seat preferences, and opinions on various in-flight behaviors. The purpose of this analysis is to uncover interesting insights and patterns within the dataset.
 
 ## Hypotheses
