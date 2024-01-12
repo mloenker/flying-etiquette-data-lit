@@ -179,7 +179,7 @@ def features_trans_back_shortened(feature, number=None):
     if feature == 'Under normal circumstances, does a person who reclines their seat during a flight have any obligation to the person sitting behind them?':
         recline_obligation_map = {
             'Yes': 1,
-            'No the person on the flight has no obligation to the person behind them': 0
+            'No': 0
         }
         return return_feature(recline_obligation_map, number)
     
@@ -223,11 +223,11 @@ def features_trans_back_shortened(feature, number=None):
     
     if feature=='How often do you travel by plane?':
         travel_frequency_map = {
-            'daily': 5,
-            'byweekly': 4,
-            'weekly': 3,
-            'monthly': 2,
-            'yearly': 1,
+            'Daily': 5,
+            'Byweekly': 4,
+            'Weekly': 3,
+            'Monthly': 2,
+            'Yearly': 1,
             'Never': 0
         }
         return return_feature(travel_frequency_map, number)
@@ -309,4 +309,3 @@ def return_feature(map, number):
         return map
     else:
         return map[number]
-    
