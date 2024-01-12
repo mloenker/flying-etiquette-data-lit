@@ -147,7 +147,7 @@ def features_trans_back(feature, number=None):
         return return_feature(armrest_three_map, number)
     
     
-def features_trans_back_shoretened(feature, number=None):
+def features_trans_back_shortened(feature, number=None):
     '''
     This function turns the transformed answers shortened back to the original one.
     Args: 
