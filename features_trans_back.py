@@ -217,8 +217,8 @@ def features_trans_back_shortened(feature, number=None):
         return return_feature(education_map, number)
 
     if feature=='Location (Census Region)':
-        location_map = {'Pacific': 0, 'East North Central': 1, 'New England': 2, 'Mountain': 3, 'South Atlantic': 4, 
-                    'East South Central': 5, 'Middle Atlantic': 6, 'West North Central': 7, 'West South Central': 8}
+        location_map = {'PC': 0, 'ENC': 1, 'NE': 2, 'MT': 3, 'SA': 4, 
+                    'ESC': 5, 'MA': 6, 'WNC': 7, 'WSC': 8}
         return return_feature(location_map, number)
     
     if feature=='How often do you travel by plane?':
