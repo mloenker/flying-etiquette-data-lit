@@ -309,3 +309,99 @@ def return_feature(map, number):
         return map
     else:
         return map[number]
+def question_short(feature):
+    q_short = [
+                'Get up ',
+                'Control over Window',
+                'Obligation',
+                'Children under 18',
+                'Personal Electronics in Beginning/End',
+                'Smoked Cigarettes in bathroom',
+                'Elimininate reclining seats',
+                'Travel Frequency',
+                'Recline Seat',
+                'Rude to talk Stranger',
+                'Rude ask switch seats for friends',
+                'Rude ask switch seats for family',
+                'Rude wake up bathroom',
+                'Rude wake up walking',
+                'Rude to bring baby',
+                'Rude to bring bad children',
+                'Rude recline seat',
+                'Rude move unsold seat',
+                'Row two seats, who middle arm rest',
+                'Row three seats, who two arm rests',
+                'Location',
+                'Education',
+                'Age',
+                'Gender'
+                ]
+    
+    if feature == 'On a 6 hour flight from NYC to LA, how many times is it acceptable to get up if you\'re not in an aisle seat?':
+        return 'Get up'
+
+    if feature == 'Who should have control over the window shade?':
+        return 'Control over Window'
+    
+    if feature == 'Under normal circumstances, does a person who reclines their seat during a flight have any obligation to the person sitting behind them?':
+        return 'Obligation'
+    
+    if feature=='Gender':
+        return 'Gender'
+    
+    if feature == 'Age':
+        return 'Age'
+    
+    if feature=='Do you have any children under 18?':
+        return 'Children under 18'
+    
+    if feature=='Have you ever used personal electronics during take off or landing in violation of a flight attendant\'s direction?':
+        return 'Personal Electronics in Beginning/End'
+    
+    if feature=='Have you ever smoked a cigarette in an airplane bathroom when it was against the rules?':
+        return 'Smoked Cigarettes in bathroom'
+ 
+    if feature== 'Given the opportunity, would you eliminate the possibility of reclining seats on planes entirely?':
+        return 'Elimininate reclining seat'
+    
+    if feature == 'Household Income':
+        return 'Household Income'
+    
+    if feature=='Education':
+        return 'Education'
+
+    if feature=='Location (Census Region)':
+        return 'Location'
+    
+    if feature=='How often do you travel by plane?':
+        return 'Flying Frequency'
+    
+    if feature=='Do you ever recline your seat when you fly?':
+        return 'Recline Seat'
+
+    if feature=='Generally speaking, is it rude to say more than a few words tothe stranger sitting next to you on a plane?':
+        return 'Rude to talk Stranger'
+    
+    if feature=='Is it rude to ask someone to switch seats with you in order to be closer to friends?':
+        return 'Rude ask switch seats for friends'
+    
+    if feature=='Is it rude to ask someone to switch seats with you in order to be closer to family?':
+        return 'Rude ask switch seats for family'
+
+    if feature=='Is it rude to wake a passenger up if you are trying to go to the bathroom?':
+        return 'Rude wake up bathroom'
+    
+    if feature=='Is itrude to wake a passenger up if you are trying to walk around?':
+        return 'Rude wake up walking'
+    
+    if feature=='In general, is itrude to bring a baby on a plane?':
+        return 'Rude to bring baby'
+    
+    if feature=='In general, is it rude to knowingly bring unruly children on a plane?':
+        return 'Rude to bring unruly children'
+
+    if feature=='In a row of two seats, who should get to use the middle arm rest?':
+        return 'Row two seats, who middle arm rest'
+    
+    if feature=='In a row of three seats, who should get to use the two arm rests?':
+        return 'Row three seats, who two arm rests'
