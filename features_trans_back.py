@@ -217,8 +217,8 @@ def features_trans_back_shortened(feature, number=None):
         return return_feature(education_map, number)
 
     if feature=='Location (Census Region)':
-        location_map = {'PC': 0, 'ENC': 1, 'NE': 2, 'MT': 3, 'SA': 4, 
-                    'ESC': 5, 'MA': 6, 'WNC': 7, 'WSC': 8}
+        location_map = {'Pacific': 0, 'East North Central': 1, 'New England': 2, 'Mountain': 3, 'South Atlantic': 4, 
+                    'East South Central': 5, 'Middle Atlantic': 6, 'West North Central': 7, 'West South Central': 8}
         return return_feature(location_map, number)
     
     if feature=='How often do you travel by plane?':
@@ -309,6 +309,8 @@ def return_feature(map, number):
         return map
     else:
         return map[number]
+    
+    
 def question_short(feature):
     q_short = [
                 'Get up ',
@@ -405,3 +407,6 @@ def question_short(feature):
     
     if feature=='In a row of three seats, who should get to use the two arm rests?':
         return 'Row three seats, who two arm rests'
+    
+    if feature=='Is itrude to move to an unsold seat on a plane':
+        return 'Move unsold seat'
