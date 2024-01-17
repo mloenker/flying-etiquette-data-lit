@@ -208,7 +208,7 @@ def features_trans_back_shortened(feature, number=None):
         return return_feature(binary_map, number)
     
     if feature == 'Household Income':
-        income_map = {'$0 - $25k': 0, '$25k - $50k': 1, '$50k - $100k': 2, '$100k - $150k': 3, '>150k': 4}
+        income_map = {'\$0 - \$25k': 0, '\$25k - \$50k': 1, '\$50k - \$100k': 2, '\$100k - \$150k': 3, '>\$150k': 4}
         return return_feature(income_map, number)
     
     if feature=='Education':
@@ -217,14 +217,14 @@ def features_trans_back_shortened(feature, number=None):
         return return_feature(education_map, number)
 
     if feature=='Location (Census Region)':
-        location_map = {'Pacific': 0, 'East North Central': 1, 'New England': 2, 'Mountain': 3, 'South Atlantic': 4, 
-                    'East South Central': 5, 'Middle Atlantic': 6, 'West North Central': 7, 'West South Central': 8}
+        location_map = {'PC': 0, 'ENC': 1, 'NE': 2, 'MT': 3, 'SA': 4, 
+                    'ESC': 5, 'MA': 6, 'WNC': 7, 'WSC': 8}
         return return_feature(location_map, number)
     
     if feature=='How often do you travel by plane?':
         travel_frequency_map = {
             'Daily': 5,
-            'Byweekly': 4,
+            'Bi-weekly': 4,
             'Weekly': 3,
             'Monthly': 2,
             'Yearly': 1,
@@ -236,7 +236,7 @@ def features_trans_back_shortened(feature, number=None):
         recline_seat_map = {
             'Always': 0,
             'Usually': 1,
-            'Every Second': 2,
+            'Alternating': 2,
             'Sometimes': 3,
             'Never': 4
         }
@@ -255,7 +255,7 @@ def features_trans_back_shortened(feature, number=None):
 
     rudeness_map = {
         'No': 0,
-        'A little bit' : 1,
+        'Somewhat' : 1,
         'Yes': 2
     }
     for q in rudeness_questions:
@@ -267,7 +267,7 @@ def features_trans_back_shortened(feature, number=None):
                             ]
     rudeness_map2 = {
         'No': 0,
-        'A little bit' : 1,
+        'Somewhat' : 1,
         'Yes': 2
     }
 
@@ -280,8 +280,8 @@ def features_trans_back_shortened(feature, number=None):
             'Aisle':5,
             'Share':4,
             'Other': 3,
-            'First One': 2,
-            'Window': 1    
+            'First-comer': 2,
+            'Win': 1    
         }
         return return_feature(armrest_two_map, number)
     
@@ -290,7 +290,7 @@ def features_trans_back_shortened(feature, number=None):
             'Middle':5,
             'Share':4,
             'Other': 3,
-            'First One':2,
+            'First-comer':2,
             'Edges':1    
         }
         return return_feature(armrest_three_map, number)
