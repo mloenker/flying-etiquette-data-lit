@@ -384,10 +384,13 @@ def question_short(feature):
     if feature=='Generally speaking, is it rude to say more than a few words tothe stranger sitting next to you on a plane?':
         return 'Rude to talk Stranger'
     
+    if feature=='Is itrude to recline your seat on a plane?':
+        return 'Rude recline seat'
+    
     if feature=='Is it rude to ask someone to switch seats with you in order to be closer to friends?':
         return 'Rude ask switch seats for friends'
     
-    if feature=='Is it rude to ask someone to switch seats with you in order to be closer to family?':
+    if feature=='Is itrude to ask someone to switch seats with you in order to be closer to family?':
         return 'Rude ask switch seats for family'
 
     if feature=='Is it rude to wake a passenger up if you are trying to go to the bathroom?':
@@ -407,6 +410,6 @@ def question_short(feature):
     
     if feature=='In a row of three seats, who should get to use the two arm rests?':
         return 'Row three seats, who two arm rests'
-    
-    if feature=='Is itrude to move to an unsold seat on a plane':
+
+    if feature=='Is itrude to move to an unsold seat on a plane?':
         return 'Move unsold seat'
