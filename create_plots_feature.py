@@ -72,7 +72,7 @@ class MakeFeaturePlots:
             ax = ax_flat[counter]
             
             conditional_prob.plot(kind='bar', stacked=False, width=0.7,ax=ax)
-            # print(conditional_prob)
+
             ax.set_title(qs(conditional_prob.columns.name))
             ax.set_xlabel(conditional_prob.index.name)
             ax.set_ylabel('Percentage')
@@ -85,10 +85,14 @@ class MakeFeaturePlots:
                 i = float(i)
                 answer_change.append(ftbs(q_name, i))
 
+            columns_list = []
+            for i in conditional_prob.columns.tolist():
+                i = float(i)
+                columns_list.append(ftbs(conditional_prob.columns.name, i))
 
             ax.set_xticks(range(len(q_name_list)))
             ax.set_xticklabels(answer_change)
-            ax.legend(list(feature_name.values()))
+            ax.legend(columns_list)
 
             counter+=1
         
