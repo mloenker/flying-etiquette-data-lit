@@ -57,17 +57,17 @@ class MakeFeaturePlots:
 
         return probabilities
 
-    def many_plots (df, feature, calculate_conditional_probability, ftbs, qs):
-        questions = list(df.columns)[1:]
+    def many_plots(self):
+        questions = list(self.df.columns)[1:]
         counter = 0 
         fig, ax = plt.subplots(4, 6, figsize=(45,35))
         ax_flat = ax.flatten()
         for q in questions:
-            if q == feature:
+            if q == self.feature:
                 continue
             if q == 'How tall are you?':
                 continue
-            conditional_prob = calculate_conditional_probability(df, feature, q)
+            conditional_prob = self.calculate_conditional_probability(self.df, self.feature, q)
 
             ax = ax_flat[counter]
             
@@ -94,4 +94,4 @@ class MakeFeaturePlots:
         
         plt.tight_layout()  # Adjust layout for better visualization
         plt.show()         
-        
+            
