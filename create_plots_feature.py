@@ -93,7 +93,6 @@ class MakeFeaturePlots:
             ax.set_xticks(range(len(q_name_list)))
             ax.set_xticklabels(answer_change)
             ax.legend(columns_list)
-
             counter+=1
         
         plt.tight_layout()  # Adjust layout for better visualization
