@@ -57,31 +57,41 @@ class MakeFeaturePlots:
 
         return probabilities
 
-    def many_plots(self):
-        questions = list(self.df.columns)[1:]
+    def many_plots (df, feature, calculate_conditional_probability, ftbs, qs):
+        questions = list(df.columns)[1:]
         counter = 0 
         fig, ax = plt.subplots(4, 6, figsize=(45,35))
         ax_flat = ax.flatten()
         for q in questions:
-            if q == self.feature:
+            if q == feature:
                 continue
             if q == 'How tall are you?':
                 continue
-            conditional_prob = self.calculate_conditional_probability(self.df, self.feature, q)
+            conditional_prob = calculate_conditional_probability(df, feature, q)
+
             ax = ax_flat[counter]
             
             conditional_prob.plot(kind='bar', stacked=False, width=0.7,ax=ax)
-           
+            # print(conditional_prob)
             ax.set_title(qs(conditional_prob.columns.name))
             ax.set_xlabel(conditional_prob.index.name)
             ax.set_ylabel('Percentage')
             feature_name = ftbs(conditional_prob.columns.name)
-            q_name = ftbs(conditional_prob.index.name)
-            ax.set_xticks(range(len(q_name)))
-            ax.set_xticklabels(list(q_name.values()))
+            q_name = conditional_prob.index.name
+            q_name_list = conditional_prob.index.tolist()
+            
+            answer_change = []
+            for i in q_name_list:
+                i = float(i)
+                answer_change.append(ftbs(q_name, i))
+
+
+            ax.set_xticks(range(len(q_name_list)))
+            ax.set_xticklabels(answer_change)
             ax.legend(list(feature_name.values()))
 
             counter+=1
+        
         plt.tight_layout()  # Adjust layout for better visualization
-        plt.show()    
+        plt.show()         
         
