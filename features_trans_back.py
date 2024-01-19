@@ -76,7 +76,7 @@ def features_trans_back(feature, number=None):
         travel_frequency_map = {
             'Every day': 5,
             'A few times per week': 4,
-            'a few times per month': 3,
+            'A few times per month': 3,
             'Once a month or less': 2,
             'Once a year or less': 1,
             'Never': 0
