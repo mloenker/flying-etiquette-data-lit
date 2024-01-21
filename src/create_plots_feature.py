@@ -83,7 +83,7 @@ class MakeFeaturePlots:
         return probabilities
 
 
-    def one_plot(self, target_feature, title=None, color=None, save_plot=None):
+    def plot_single_conditional_probabilities(self, target_feature, title=None, color=None, save_plot=None):
         """
         Plots the conditional probability distribution of one feature given a specific target feature.
 
