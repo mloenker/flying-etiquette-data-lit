@@ -62,7 +62,7 @@ class MakeFeaturePlots:
         return probabilities
 
 
-    def one_plot(self, target_feature, color=None):
+    def one_plot(self, target_feature, title=None, color=None):
         '''
         This function takes a feature and plots the conditional probability of all other features
         params:
@@ -71,7 +71,7 @@ class MakeFeaturePlots:
         
 
         # set plotting stylesheet
-        # plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
+        plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
 
         conditional_prob = self.calculate_conditional_probability(self.df, self.feature, target_feature)
 
@@ -80,7 +80,11 @@ class MakeFeaturePlots:
             color = [rgb.tue_red, rgb.tue_green, rgb.tue_blue, rgb.tue_orange]  # Replace tue_blue with the desired color constant
 
         conditional_prob.plot(kind='bar', stacked=False, width=0.7, figsize=(10,8), color=color)
-        plt.title(qs(conditional_prob.columns.name))
+       
+        if title==None:
+            title = qs(conditional_prob.columns.name)
+        
+        plt.title(title)
         plt.xlabel(conditional_prob.index.name)
         plt.ylabel('Percentage')
         feature_name = ftbs(conditional_prob.columns.name)
@@ -97,7 +101,7 @@ class MakeFeaturePlots:
             i = float(i)
             columns_list.append(ftbs(conditional_prob.columns.name, i))
 
-        plt.xticks(range(len(q_name_list)), answer_change)
+        plt.xticks(range(len(q_name_list)), answer_change, rotation=0)
         plt.legend(columns_list)
         plt.show()
 
