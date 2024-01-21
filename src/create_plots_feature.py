@@ -18,7 +18,7 @@ class MakeFeaturePlots:
         '''
         this returns a list of all features. If number is giving it returns the value (feature) for giving index number
         params:
-            get_f (int): default is None
+            get_f (int, optional): gets the feature for the given index number
 
         '''
 
@@ -55,6 +55,25 @@ class MakeFeaturePlots:
             return f_list[get_f]
 
     def calculate_conditional_probability(self, changed_df, condition_column, event_column):
+        """
+        Calculates conditional probabilities based on the specified condition and event columns.
+
+        This function takes a DataFrame, groups it by a specified condition column, and calculates
+        the conditional probabilities for each level of the event column. The result is a DataFrame
+        where each row represents a level of the condition column, and each column represents a level
+        of the event column.
+
+        Parameters:
+        - self: The instance of the class containing the dataset and necessary methods.
+        - changed_df (pd.DataFrame): The DataFrame containing the data for calculation.
+        - condition_column (str): The column used for conditioning the probabilities.
+        - event_column (str): The column for which conditional probabilities are calculated.
+
+        Returns:
+        - pd.DataFrame: A DataFrame representing conditional probabilities for each combination of
+        levels in the condition and event columns.
+        """
+
         # Group by the condition column and calculate the conditional probabilities
         probabilities = changed_df.groupby(condition_column)[event_column].value_counts(normalize=True).unstack()
 
@@ -65,11 +84,23 @@ class MakeFeaturePlots:
 
 
     def one_plot(self, target_feature, title=None, color=None, save_plot=None):
-        '''
-        This function takes a feature and plots the conditional probability of all other features
-        params:
-            target_feature (str): the feature you want to plot
-        '''
+        """
+        Plots the conditional probability distribution of one feature given a specific target feature.
+
+        This function generates a bar plot representing the conditional probability distribution
+        of pne feature given a specified target feature. The target feature is conditioned upon,
+        and the resulting plot shows the probabilities for each level of the target feature.
+
+        Parameters:
+        - self: The instance of the class containing the dataset and necessary methods.
+        - target_feature (str): The feature for which conditional probabilities are calculated and plotted.
+        - title (str, optional): The title for the plot. If not provided, it is derived from the target feature.
+        - color (list, optional): A list of colors for the bars in the plot. If not provided, default colors are used.
+        - save_plot (str, optional): If provided, the plot is saved in the doc/AnalysisPassengerBehaviour/fig folder with the specified name.
+
+        Returns:
+        - None
+        """
 
         # set plotting stylesheet
         plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
@@ -105,15 +136,30 @@ class MakeFeaturePlots:
         plt.xticks(range(len(q_name_list)), answer_change, rotation=0)
         plt.legend(columns_list)
         if save_plot != None:
-            path_fig = '../../doc/AnalysisPassangerBehaviour/fig'
+            path_fig = '../../doc/AnalysisPassengerBehaviour/fig'
             plt.savefig(os.path.join(path_fig, save_plot))
         plt.show()
         
 
 
-    def many_plots(self):
-        # set plotting stylesheet
-        # plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
+    def plot_conditional_probabilities(self):
+        """
+        Plots conditional probabilities for each question in the dataset, given a specified feature.
+
+        This function generates a set of bar plots, each representing the conditional probability distribution
+        of a question given a specified feature. The plots are arranged in a 4x6 grid for better visualization.
+
+        Parameters:
+        - self: The instance of the class containing the dataset and necessary methods.
+        
+        Returns:
+        - None
+
+        Note:
+        - The 'feature' attribute of the class instance is used as the conditioning feature.
+        - The function skips plotting the conditional probability if the question is the same as the feature or
+        if the question is 'How tall are you?'.
+        """
 
         questions = list(self.df.columns)[1:]
         counter = 0 
@@ -153,5 +199,4 @@ class MakeFeaturePlots:
             counter+=1
         
         plt.tight_layout()  # Adjust layout for better visualization
-        plt.show()         
-            
+        plt.show()
