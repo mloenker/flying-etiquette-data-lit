@@ -1,7 +1,11 @@
 from features_trans_back import features_trans_back_shortened as ftbs
 from features_trans_back import question_short as qs
 import matplotlib.pyplot as plt
+from tueplots import bundles
 
+# this provides the color palette of Uni Tuebingen
+from tueplots.constants.color import rgb 
+# e.g. as rgb.tue_blue, rgb.tue_red, etc.
 
 class MakeFeaturePlots:
     def __init__(self, df, feature):
@@ -57,7 +61,46 @@ class MakeFeaturePlots:
 
         return probabilities
 
+
+    def one_plot(self, target_feature):
+        '''
+        This function takes a feature and plots the conditional probability of all other features
+        params:
+            target_feature (str): the feature you want to plot
+        '''
+        
+
+        # set plotting stylesheet
+        # plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
+
+        conditional_prob = self.calculate_conditional_probability(self.df, self.feature, target_feature)
+        conditional_prob.plot(kind='bar', stacked=False, width=0.7, figsize=(15,10))
+        plt.title(qs(conditional_prob.columns.name))
+        plt.xlabel(conditional_prob.index.name)
+        plt.ylabel('Percentage')
+        feature_name = ftbs(conditional_prob.columns.name)
+        q_name = conditional_prob.index.name
+        q_name_list = conditional_prob.index.tolist()
+        
+        answer_change = []
+        for i in q_name_list:
+            i = float(i)
+            answer_change.append(ftbs(q_name, i))
+
+        columns_list = []
+        for i in conditional_prob.columns.tolist():
+            i = float(i)
+            columns_list.append(ftbs(conditional_prob.columns.name, i))
+
+        plt.xticks(range(len(q_name_list)), answer_change)
+        plt.legend(columns_list)
+        plt.show()
+
+
     def many_plots(self):
+        # set plotting stylesheet
+        # plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
+
         questions = list(self.df.columns)[1:]
         counter = 0 
         fig, ax = plt.subplots(4, 6, figsize=(45,35))
