@@ -1,7 +1,9 @@
 from features_trans_back import features_trans_back_shortened as ftbs
 from features_trans_back import question_short as qs
+import os
 import matplotlib.pyplot as plt
 from tueplots import bundles
+
 
 # this provides the color palette of Uni Tuebingen
 from tueplots.constants.color import rgb 
@@ -62,7 +64,7 @@ class MakeFeaturePlots:
         return probabilities
 
 
-    def one_plot(self, target_feature, title=None, color=None):
+    def one_plot(self, target_feature, title=None, color=None, save_plot=None):
         '''
         This function takes a feature and plots the conditional probability of all other features
         params:
@@ -78,7 +80,7 @@ class MakeFeaturePlots:
         if color==None:
             color = [rgb.tue_red, rgb.tue_green, rgb.tue_blue, rgb.tue_orange]  # Replace tue_blue with the desired color constant
 
-        conditional_prob.plot(kind='bar', stacked=False, width=0.7, figsize=(10,8), color=color)
+        conditional_prob.plot(kind='bar', stacked=False, color=color)
        
         if title==None:
             title = qs(conditional_prob.columns.name)
@@ -102,7 +104,11 @@ class MakeFeaturePlots:
 
         plt.xticks(range(len(q_name_list)), answer_change, rotation=0)
         plt.legend(columns_list)
+        if save_plot != None:
+            path_fig = '../doc/fig'
+            plt.savefig(os.path.join(path_fig, save_plot))
         plt.show()
+        
 
 
     def many_plots(self):
