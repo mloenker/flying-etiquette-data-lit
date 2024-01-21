@@ -105,7 +105,7 @@ class MakeFeaturePlots:
         plt.xticks(range(len(q_name_list)), answer_change, rotation=0)
         plt.legend(columns_list)
         if save_plot != None:
-            path_fig = '../doc/fig'
+            path_fig = '../../doc/AnalysisPassangerBehaviour/fig'
             plt.savefig(os.path.join(path_fig, save_plot))
         plt.show()
         
