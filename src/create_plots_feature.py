@@ -68,7 +68,6 @@ class MakeFeaturePlots:
         params:
             target_feature (str): the feature you want to plot
         '''
-        
 
         # set plotting stylesheet
         plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
