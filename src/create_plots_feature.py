@@ -103,7 +103,23 @@ class MakeFeaturePlots:
         """
 
         # set plotting stylesheet
-        plt.rcParams.update(bundles.icml2022(column='full', nrows=1, ncols=2, usetex=False))
+        plt.rcParams.update(bundles.icml2022(column='half', usetex=False))
+        plt.rcParams.update({
+            'text.usetex': False,
+            'font.family': 'serif',
+            'text.latex.preamble': '\\usepackage{times} ',
+            'figure.figsize': (3.25*2.77, 2.0086104634371584*1.4),
+            'figure.constrained_layout.use': True,
+            'figure.autolayout': False,
+            'savefig.bbox': 'tight',
+            'savefig.pad_inches': 0.015,
+            'font.size': 11,
+            'axes.labelsize': 8,
+            'legend.fontsize': 8,
+            'xtick.labelsize': 8,
+            'ytick.labelsize': 8,
+            'axes.titlesize': 11
+        })
 
         conditional_prob = self.calculate_conditional_probability(self.df, self.feature, target_feature)
 
@@ -134,7 +150,7 @@ class MakeFeaturePlots:
             columns_list.append(ftbs(conditional_prob.columns.name, i))
 
         plt.xticks(range(len(q_name_list)), answer_change, rotation=0)
-        plt.legend(columns_list)
+        plt.legend(columns_list, loc='upper right')
         if save_plot != None:
             path_fig = '../../doc/AnalysisPassengerBehaviour/fig'
             plt.savefig(os.path.join(path_fig, save_plot))
