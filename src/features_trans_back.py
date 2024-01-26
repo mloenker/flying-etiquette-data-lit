@@ -208,7 +208,7 @@ def features_trans_back_shortened(feature, number=None):
         return return_feature(binary_map, number)
     
     if feature == 'Household Income':
-        income_map = {'\$0 - \$25k': 0, '\$25k - \$50k': 1, '\$50k - \$100k': 2, '\$100k - \$150k': 3, '>\$150k': 4}
+        income_map = {'$0 - $25k': 0, '$25k - $50k': 1, '$50k - $100k': 2, '$100k - $150k': 3, '>$150k': 4}
         return return_feature(income_map, number)
     
     if feature=='Education':
