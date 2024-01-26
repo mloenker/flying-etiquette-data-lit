@@ -114,8 +114,8 @@ class MakeFeaturePlots:
             'savefig.bbox': 'tight',
             'savefig.pad_inches': 0.015,
             'font.size': 11+5,
-            'axes.labelsize': 8+10,
-            'legend.fontsize': 8+5,
+            'axes.labelsize': 8+3,
+            'legend.fontsize': 8+3,
             'xtick.labelsize': 8+3,
             'ytick.labelsize': 8+3,
             'axes.titlesize': 11+5
