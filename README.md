@@ -18,14 +18,5 @@ We used Python 3.8.5, with the libraries numpy 1.23.2, matplotlib 3.7.4, prince 
 
 3. "Body height" affects ones' attitude toward seat reclining
 
-    "Height" and "Is it rude to recline your seat?" Anova p-value: 0.19
-    - [ ] Significant Result
-
     "Height" and "Given the opportunity, would you eliminate the possibility of reclining seats on planes entirely?" Anova p-value: 0.017
     - [x] Significant Result
-
-## Usage
-coming.
-
-## Contributions
-coming.
