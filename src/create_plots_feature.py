@@ -107,18 +107,19 @@ class MakeFeaturePlots:
         plt.rcParams.update({
             'text.usetex': False,
             'font.family': 'serif',
+            'font.serif': 'Times New Roman',
             'text.latex.preamble': '\\usepackage{times} ',
             'figure.figsize': (3.25*2.77, 2.0086104634371584*1.4),
             'figure.constrained_layout.use': True,
             'figure.autolayout': False,
             'savefig.bbox': 'tight',
             'savefig.pad_inches': 0.015,
-            'font.size': 11+5,
-            'axes.labelsize': 8+3,
-            'legend.fontsize': 8+3,
-            'xtick.labelsize': 8+3,
-            'ytick.labelsize': 8+3,
-            'axes.titlesize': 11+5
+            'font.size': 11+7,
+            'axes.labelsize': 8+5,
+            'legend.fontsize': 8+5,
+            'xtick.labelsize': 8+5,
+            'ytick.labelsize': 8+5,
+            'axes.titlesize': 11+7
         })
 
         conditional_prob = self.calculate_conditional_probability(self.df, self.feature, target_feature)
